@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ml_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+  frontend:
+    image: python:3.11
+    container_name: ml_frontend
+    working_dir: /app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    command: bash -c "pip install -r requirements.txt && streamlit run streamlit_app.py --server.port=8501 --server.address=0.0.0.0"
