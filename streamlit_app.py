@@ -8,7 +8,7 @@ import seaborn as sns
 import numpy as np
 
 
-API_URL = "http://localhost:8000"  
+API_URL = "http://backend:8000"  
 
 st.set_page_config(page_title="ML Сервис", layout="wide")
 st.title("ML-Сервис (FastAPI + Streamlit)")
